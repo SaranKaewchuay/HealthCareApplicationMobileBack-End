@@ -18,14 +18,6 @@ module.exports = class RecordDetail {
         );
     }
 
-    //    static edit () {
-    //         return db.execute(
-    //             'update recorddetail set Symptom_id= ? where DailyRecord_id = ?',
-    //             [this.Symptom_id, this.DailyRecord_id]
-    //         );
-    //     }
-
-    //'select * from products where p_id = ?',
     static findById(id) {
         return db.execute(
             'select * from recorddetail where DailyRecord_id = ?',
@@ -39,8 +31,4 @@ module.exports = class RecordDetail {
             [id]
         );
     }
-
-    // static getIdRecord() {
-    //     return db.execute('SELECT id FROM dailyrecord ORDER BY id DESC LIMIT 1');
-    // }
 }

@@ -12,18 +12,18 @@ module.exports = class Disease {
     }
 
     static findAll() {
-        return db.execute("SELECT * FROM Disease");
+        return db.execute("SELECT * FROM disease");
     }
 
     save() {
         if (this.id) {
             return db.execute(
-                'update Disease set diseaseName=?, symptom=?,  cause=?, treatment=?, selfCare=? where id = ?',
+                'update disease set diseaseName=?, symptom=?,  cause=?, treatment=?, selfCare=? where id = ?',
                 [this.diseaseName, this.symptom, this.cause, this.treatment, this.selfCare, this.id]
             );
         } else {
             return db.execute(
-                'insert into Disease(diseaseName, symptom,  cause, treatment, selfCare) values(?,?,?,?,?)',
+                'insert into disease(diseaseName, symptom,  cause, treatment, selfCare) values(?,?,?,?,?)',
                 [this.diseaseName, this.symptom, this.cause, this.treatment, this.selfCare]
             );
         }
@@ -31,21 +31,14 @@ module.exports = class Disease {
     //'select * from products where p_id = ?',
     static findById(id) {
         return db.execute(
-            'select * from Disease where id = ?',
+            'select * from disease where id = ?',
             [id]
         );
     }
 
-    // static findByIdDisease(BodyType_id) {
-    //     return db.execute(
-    //         'select * from Symptom INNER join BodyType on Symptom.BodyType_id = BodyType.id where BodyType_id = ?',
-    //         [BodyType_id]
-    //     )
-    // }
-
     static delById(id) {
         return db.execute(
-            'delete from Disease where id = ?',
+            'delete from disease where id = ?',
             [id]
         );
     }

@@ -29,4 +29,4 @@ app.use("/api/disease",diseaseRoutes);
 app.use("/api/record",recorddetailRoutes);
 app.use("/api/daily",dailyrecordRoutes);
 app.use("/api/profile",profileRoutes);
-app.listen(8083);
+app.listen(process.env.PORT || 3000);
